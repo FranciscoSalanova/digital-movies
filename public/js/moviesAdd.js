@@ -13,4 +13,31 @@ window.onload = function(){
         titulo.style.color = '#' + Math.round(Math.random() * 999999).toString();
     });
 
+    let estadoSecreto = 0;
+
+    campoTitulo.addEventListener('keydown', (e) => {
+        let teclaPresionada = e.key;
+        codigoSecreto(teclaPresionada);
+    });
+
+    function codigoSecreto(tecla) {
+        switch (estadoSecreto) {
+            case 0:            
+                if (tecla === 's' || tecla === 'S') {
+                    estadoSecreto = 1;
+                    console.log(estadoSecreto);
+                }
+                break;
+            case 1:            
+                if (tecla === 'e' || tecla === 'E') {
+                    estadoSecreto = 2;
+                    console.log(estadoSecreto);
+                }
+                break;
+            default:
+                estadoSecreto = 0;
+                console.log(estadoSecreto);
+                break;
+        }
+    }
 }
